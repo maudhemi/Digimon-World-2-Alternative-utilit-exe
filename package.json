@@ -1,0 +1,30 @@
+{
+  "name": "painel-digimon",
+  "productName": "Painel Digimon",
+  "version": "1.0.0",
+  "description": "Painel de Busca Digimon World 2 Alternative 6.0",
+  "author": "Painel Digimon",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --publish never"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "br.digimon.painel.desktop",
+    "productName": "Painel Digimon",
+    "files": ["main.js", "www/**/*"],
+    "directories": { "buildResources": "build", "output": "dist" },
+    "win": { "target": ["nsis", "portable"], "icon": "build/icon.png" },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "artifactName": "PainelDigimon-Instalador-${version}.${ext}"
+    },
+    "portable": { "artifactName": "PainelDigimon-Portatil-${version}.${ext}" }
+  }
+}
